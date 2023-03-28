@@ -4,7 +4,7 @@ LABEL maintainer="devopsconsious@gmail.com"
 
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-COPY ./target/*.war /usr/local/tomcat/webapps/
+COPY ./target/ABCtechnologies-1.0.war /usr/local/tomcat/webapps/ROOT.war
 
 EXPOSE 8080
 
