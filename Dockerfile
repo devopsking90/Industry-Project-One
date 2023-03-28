@@ -1,8 +1,8 @@
-FROM tomcat:8.0-alpine
+FROM tomcat:latest
 
 LABEL maintainer="devopsconsious@gmail.com"
 
-ADD **/*.war /usr/local/tomcat/webapps/
+ADD **/*.war /usr/local/tomcat/webapps
 
 EXPOSE 8080
 
