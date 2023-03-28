@@ -35,7 +35,7 @@ pipeline {
         stage('Deploy'){
             steps {
  
-                sh "docker run --name abc_billi_comp -d -p 80:8080 plamsal90/abc-technology:${TAG}"
+                sh "docker run --name cmon -d -P plamsal90/abc-technology:${TAG}"
             }
         }
     }
