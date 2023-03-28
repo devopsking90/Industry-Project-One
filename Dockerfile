@@ -4,9 +4,7 @@ LABEL maintainer="devopsconsious@gmail.com"
 
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-COPY ./target/employee-producer-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
-
-ADD **/*.war /usr/local/tomcat/webapps
+COPY .target/*.war /usr/local/tomcat/webapps/
 
 EXPOSE 8080
 
