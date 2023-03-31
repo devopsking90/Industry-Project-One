@@ -18,7 +18,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 script {
-                    docker.build("plamsal90/abcdef-technology:${TAG}")
+                    docker.build("plamsal90/khurana-app:${TAG}")
                 }
             }
         }
@@ -26,8 +26,8 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry("https://registry.hub.docker.com", "dockerhub") {
-                        docker.image("plamsal90/abcdef-technology:${TAG}").push()
-                        docker.image("plamsal90/abcdef-technology:${TAG}").push("latest")
+                        docker.image("plamsal90/khurana-app:${TAG}").push()
+                        docker.image("plamsal90/khurana-app:${TAG}").push("latest")
                     }
                 }
             }
@@ -35,7 +35,7 @@ pipeline {
         stage('Deploy'){
             steps {
  
-                sh "docker run --name cmon -d -P plamsal90/abcdef-technology:${TAG}"
+                sh "docker run --name cmon1 -d -P plamsal90/khurana-app:${TAG}"
             }
         }
     }
