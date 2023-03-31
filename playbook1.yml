@@ -4,7 +4,7 @@
   become_user: root
   tasks:
   - name: install httpd
-    yum: name=httpd state=present
+    apt: name=httpd state=present
   - name: start httpd
     service: name=httpd state=started
   - name: deploy html file
