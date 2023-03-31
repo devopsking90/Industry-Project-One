@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent {label 'agent1'}
     tools {
         jdk 'myjava'
         maven 'mymaven'
@@ -18,7 +18,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 script {
-                    docker.build("plamsal90/abcde-technology:${TAG}")
+                    docker.build("plamsal90/abcdef-technology:${TAG}")
                 }
             }
         }
@@ -26,12 +26,17 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-                        docker.image("plamsal90/abc-technology:${TAG}").push()
-                        docker.image("plamsal90/abc-technology:${TAG}").push("latest")
+                        docker.image("plamsal90/abcdef-technology:${TAG}").push()
+                        docker.image("plamsal90/abcdef-technology:${TAG}").push("latest")
                     }
                 }
             }
         }
-
+        stage('Deploy'){
+            steps {
+ 
+                sh "docker run --name cmon -d -P plamsal90/abcdef-technology:${TAG}"
+            }
+        }
     }
-
+}
