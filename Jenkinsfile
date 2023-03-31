@@ -25,7 +25,7 @@ pipeline {
 	    stage('Pushing Docker Image to Dockerhub') {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+                    docker.withRegistry("https://registry.hub.docker.com", "dockerhub") {
                         docker.image("plamsal90/abcdef-technology:${TAG}").push()
                         docker.image("plamsal90/abcdef-technology:${TAG}").push("latest")
                     }
