@@ -1,15 +1,22 @@
 ---
-- hosts: webservers
-  become: true
-  become_user: root
+- hosts: web
+  become: yes
+  vars: 
+    username: sonal
+    doc_root: /var/www/html
   tasks:
-  - name: install httpd
-    apt: name=httpd state=present
-  - name: start httpd
-    service: name=httpd state=started
-  - name: deploy html file
-    copy: src=index.html dest=/var/www/html
-    notify: restart httpd
-  handlers:
-  - name: restart httpd
-    service: name=httpd state=restarted
+
+# This task will install apache http server
+  - name: Install apache2
+    apt:
+      name: apache2
+      state: present
+    when: ansible_os_family == "Debian"
+
+  - name: Start apache2
+    service:
+      name: apache2
+      state: started 
+      enabled: yes
+    when: ansible_os_family == "Debian"
+
