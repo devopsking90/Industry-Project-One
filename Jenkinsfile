@@ -18,7 +18,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 script {
-                    docker.build("plamsal90/khurana-app:${TAG}")
+                    docker.build("plamsal90/abc-technology-cali:${TAG}")
                 }
             }
         }
@@ -26,17 +26,15 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry("https://registry.hub.docker.com", "dockerhub") {
-                        docker.image("plamsal90/khurana-app:${TAG}").push()
-                        docker.image("plamsal90/khurana-app:${TAG}").push("latest")
+                        docker.image("plamsal90/abc-technology-cali:${TAG}").push()
+                        docker.image("plamsal90/abc-technology-cali:${TAG}").push("latest")
                     }
                 }
             }
         }
-        stage('Deploy'){
-            steps {
- 
-                sh "docker run --name cmon1 -d -P plamsal90/khurana-app:${TAG}"
-            }
-        }
+ 	stage("kubernetes deployment"){
+        	sh 'kubectl apply -f k8s-spring-boot-deployment.yml'
+    }
+
     }
 }
