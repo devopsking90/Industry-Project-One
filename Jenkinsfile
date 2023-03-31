@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'agent1'}
+    agent any
     tools {
         jdk 'myjava'
         maven 'mymaven'
@@ -18,7 +18,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 script {
-                    docker.build("plamsal90/abc-technology:${TAG}")
+                    docker.build("plamsal90/abcde-technology:${TAG}")
                 }
             }
         }
@@ -32,11 +32,6 @@ pipeline {
                 }
             }
         }
-        stage('Deploy'){
-            steps {
- 
-                sh "docker run --name cmon -d -P plamsal90/abc-technology:${TAG}"
-            }
-        }
+
     }
 }
