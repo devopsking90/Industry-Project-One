@@ -22,9 +22,10 @@
     command: docker tag abc-technology-cloud-d plamsal90/abc-technology-cloud-d:latest
 
   - name: Tag and push to docker hub
-    repository: plamsal90/abc-technology-cloud-d:latest
-    push: true
-    source: local
+    community.docker.docker_image:
+      repository: plamsal90/abc-technology-cloud-d:latest
+      push: true
+      source: local
     
     
     
