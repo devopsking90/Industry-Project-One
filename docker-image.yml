@@ -21,9 +21,6 @@
   - name: tag docker image 
     command: docker tag abc-technology-cloud-d plamsal90/abc-technology-cloud-d:latest
 
-#   - name: push to docker hub
-#     command: docker push plamsal90/abc-technology-cloud-:latest
-    
   - name: Tag and push to docker hub
     repository: plamsal90/abc-technology-cloud-d:latest
     push: true
