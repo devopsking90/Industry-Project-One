@@ -1,6 +1,6 @@
 ---
 - hosts: localhost
-  become: jenkins
+  become: true
 
   tasks:
   - name: Running mvn clean
@@ -15,12 +15,34 @@
     shell: "mvn package"
     register: mvn_result
     
-  - name: create docker image using war file
-    command: docker build -t plamsal90/abc-technology-cloud-c:latest .
+  - name: build docker image 
+    command: docker build -t abc-technology-cloud-d . 
+    args: chdir: /opt/docker
+  
+  - name: tag docker image 
+    command: docker tag abc-technology-cloud-d plamsal90/abc-technology-cloud-c:latest
 
-  - name: push to docker hub
-    command: docker push plamsal90/abc-technology-cloud-c:latest
+#   - name: push to docker hub
+#     command: docker push plamsal90/abc-technology-cloud-c:latest
     
+    
+    
+#     name: build docker image 
+#     command: docker build -t docker-image . 
+#     args: chdir: /opt/docker
+
+# name: tag docker image command: docker tag docker-image tsvarma07/image:docker-image
+
+# name: push image into docker hub 
+# command: docker push tsvarma07/image:docker-image
+
+
+
+
+
+
+# name: push image into docker hub 
+# command: docker push tsvarma07/image:docker-image
 
 #   - name: remove docker images form ansible server
 #     command: docker rmi abc-technology-cloud:latest plamsal90/abc-technology-cloud
