@@ -15,11 +15,11 @@
     shell: "mvn package"
     register: mvn_result
     
-#   - name: create docker image using war file
-#     command: docker build -t abc-technology-cloud:latest .
+  - name: create docker image using war file
+    command: docker build -t abc-technology-cloud-c:latest .
 
-#   - name: create tag to image
-#     command: docker tag abc-technology-cloud plamsal90/abc-technology-cloud
+  - name: create tag to image
+    command: docker tag abc-technology-cloud plamsal90/abc-technology-cloud-c
 
 #   - name: push image on to dockerhub
 #     command: docker push plamsal90/abc-technology-cloud
