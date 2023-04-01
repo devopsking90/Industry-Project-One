@@ -3,15 +3,23 @@
   become: true
 
   tasks:
-  - name: create docker image using war file
-    command: docker build -t abc-technology-cloud:latest .
+  - name: Running mvn clean
+    shell: "mvn clean install"
+    register: mvn_result
 
-  - name: create tag to image
-    command: docker tag abc-technology-cloud plamsal90/abc-technology-cloud
+  - name: "mvn clean task output"
+    debug:
+     var: mvn_result
+    
+#   - name: create docker image using war file
+#     command: docker build -t abc-technology-cloud:latest .
 
-  - name: push image on to dockerhub
-    command: docker push plamsal90/abc-technology-cloud
+#   - name: create tag to image
+#     command: docker tag abc-technology-cloud plamsal90/abc-technology-cloud
 
-  - name: remove docker images form ansible server
-    command: docker rmi abc-technology-cloud:latest plamsal90/abc-technology-cloud
-    ignore_errors: yes
+#   - name: push image on to dockerhub
+#     command: docker push plamsal90/abc-technology-cloud
+
+#   - name: remove docker images form ansible server
+#     command: docker rmi abc-technology-cloud:latest plamsal90/abc-technology-cloud
+#     ignore_errors: yes
