@@ -11,18 +11,15 @@
     debug:
      var: mvn_result
      
-  - name: Running mvn clean
+  - name: Running mvn package
     shell: "mvn package"
     register: mvn_result
     
   - name: create docker image using war file
-    command: docker build -t abc-technology-cloud-c:latest .
+    command: docker build -t plamsal90/abc-technology-cloud-c:latest .
 
-  - name: create tag to image
-    command: docker tag abc-technology-cloud plamsal90/abc-technology-cloud-c
-
-#   - name: push image on to dockerhub
-#     command: docker push plamsal90/abc-technology-cloud
+  - name: push image on to dockerhub
+    command: docker push plamsal90/abc-technology-cloud
 
 #   - name: remove docker images form ansible server
 #     command: docker rmi abc-technology-cloud:latest plamsal90/abc-technology-cloud
