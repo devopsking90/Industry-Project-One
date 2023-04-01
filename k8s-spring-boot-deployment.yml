@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: abc-technology-cali
+  name: abc-technology-cloud
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
-      app: abc-technology-cali
+      app: abc-technology-cloud
   template:
     metadata:
       labels:
-        app: abc-technology-cali
+        app: abc-technology-cloud
     spec:
       containers:
         - name: java
-          image: plamsal90/abc-technology-cali
+          image: plamsal90/abc-technology-cloud
           ports:
             - containerPort: 8080
           env:
@@ -24,11 +24,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: abc-technology-cali
+  name: abc-technology-cloud
 spec:
   type: LoadBalancer
   ports:
     - port: 80
       targetPort: 8080
   selector:
-    app: abc-technology-cali
+    app: abc-technology-cloud
