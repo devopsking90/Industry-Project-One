@@ -21,12 +21,11 @@
   - name: tag docker image 
     command: docker tag abc-technology-cloud-d plamsal90/abc-technology-cloud-d:latest
 
-  - name: Tag and push to docker hub
-    community.docker.docker_image:
-      name: abc-technology-cloud-d
-      repository: plamsal90/abc-technology-cloud-d:latest
-      push: true
-      source: local
+  - name: Push image to registry
+    docker_image:
+    name: abc-technology-cloud-d
+    repository: plamsal90/abc-technology-cloud-d:latest
+    push: yes
     
     
     
