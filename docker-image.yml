@@ -15,18 +15,29 @@
     shell: "mvn package"
     register: mvn_result
     
-  - name: build docker image 
-    source: build
-    command: docker build -t abc-technology-cloud-d . 
-  
-  - name: tag docker image 
-    command: docker tag abc-technology-cloud-d plamsal90/abc-technology-cloud-d:latest
+  - name: create docker image
+    command: docker build -t abc-technology-cloud-m .
+    args:
+     chdir: /opt/docker
 
-  - name: Push image to registry
-    docker_image:
-      name: abc-technology-cloud-d
-      repository: plamsal90/abc-technology-cloud-d:latest
-      push: yes
+  - name: create tag to push image onto dockerhub
+    command: docker tag abc-technology-cloud-m plamsal90/abc-technology-cloud-m:latest
+
+  - name: push docker image
+    command: docker push plamsal90/abc-technology-cloud-m:latest
+    
+#   - name: build docker image 
+#     source: build
+#     command: docker build -t abc-technology-cloud-d . 
+  
+#   - name: tag docker image 
+#     command: docker tag abc-technology-cloud-d plamsal90/abc-technology-cloud-d:latest
+
+#   - name: Push image to registry
+#     docker_image:
+#       name: abc-technology-cloud-d
+#       repository: plamsal90/abc-technology-cloud-d:latest
+#       push: yes
     
     
     
