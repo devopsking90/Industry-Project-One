@@ -19,10 +19,17 @@
     command: docker build -t abc-technology-cloud-d . 
   
   - name: tag docker image 
-    command: docker tag abc-technology-cloud-d plamsal90/abc-technology-cloud-c:latest
+    command: docker tag abc-technology-cloud-d plamsal90/abc-technology-cloud-d:latest
 
 #   - name: push to docker hub
-#     command: docker push plamsal90/abc-technology-cloud-c:latest
+#     command: docker push plamsal90/abc-technology-cloud-:latest
+    
+  - name: Tag and push to docker hub
+    community.docker.docker_image:
+    name: tomcat:8.0.51-jre8-alpine
+    repository: plamsal90/abc-technology-cloud-d:latest
+    push: true
+    source: local
     
     
     
