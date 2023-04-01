@@ -17,8 +17,6 @@
     
   - name: build docker image 
     command: docker build -t abc-technology-cloud-d . 
-    args: 
-    chdir: /opt/docker
   
   - name: tag docker image 
     command: docker tag abc-technology-cloud-d plamsal90/abc-technology-cloud-c:latest
