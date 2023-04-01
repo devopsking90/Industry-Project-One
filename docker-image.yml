@@ -10,6 +10,10 @@
   - name: "mvn clean task output"
     debug:
      var: mvn_result
+     
+  - name: Running mvn clean
+    shell: "mvn package"
+    register: mvn_result
     
 #   - name: create docker image using war file
 #     command: docker build -t abc-technology-cloud:latest .
