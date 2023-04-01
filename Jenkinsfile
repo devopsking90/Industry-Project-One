@@ -18,7 +18,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 script {
-                    docker.build("plamsal90/abc-technology-cali:${TAG}")
+                    docker.build("plamsal90/abc-technology-cloud:${TAG}")
                 }
             }
         }
@@ -26,8 +26,8 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry("https://registry.hub.docker.com", "dockerhub") {
-                        docker.image("plamsal90/abc-technology-cali:${TAG}").push()
-                        docker.image("plamsal90/abc-technology-cali:${TAG}").push("latest")
+                        docker.image("plamsal90/abc-technology-cloud:${TAG}").push()
+                        docker.image("plamsal90/abc-technology-cloud:${TAG}").push("latest")
                     }
                 }
             }
