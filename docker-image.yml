@@ -19,8 +19,8 @@
     command: docker build -t plamsal90/abc-technology-cloud-c:latest .
 
   - name: push to docker hub
-    repository: plamsal90/abc-technology-cloud-c
-    push: yes
+    command: docker push plamsal90/abc-technology-cloud-c:latest
+    
 
 #   - name: remove docker images form ansible server
 #     command: docker rmi abc-technology-cloud:latest plamsal90/abc-technology-cloud
