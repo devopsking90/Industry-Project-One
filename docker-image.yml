@@ -18,8 +18,11 @@
   - name: create docker image using war file
     command: docker build -t plamsal90/abc-technology-cloud-c:latest .
 
-  - name: push image on to dockerhub
-    command: docker push plamsal90/abc-technology-cloud
+  - name: Tag and push to docker hub
+    docker_image:
+    name: abc
+    repository: plamsal90/abc-technology-cloud-c
+    push: yes
 
 #   - name: remove docker images form ansible server
 #     command: docker rmi abc-technology-cloud:latest plamsal90/abc-technology-cloud
