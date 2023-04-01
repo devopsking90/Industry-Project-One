@@ -23,6 +23,7 @@
 
   - name: Tag and push to docker hub
     community.docker.docker_image:
+      name: abc-technology-cloud-d
       repository: plamsal90/abc-technology-cloud-d:latest
       push: true
       source: local
