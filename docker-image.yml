@@ -20,6 +20,11 @@
 
   - name: create tag to push image onto dockerhub
     command: docker tag abc-technology-cloud-m plamsal90/abc-technology-cloud-m:latest
+    
+    docker login -u "myusername" -p "mypassword" docker.io
+    
+  - name: docker login
+    command: docker login -u "plamsal90" -p "Hareradhakrishna1@" docker.io
 
   - name: push docker image
     command: docker push plamsal90/abc-technology-cloud-m:latest
