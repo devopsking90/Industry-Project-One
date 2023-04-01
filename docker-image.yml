@@ -16,6 +16,7 @@
     register: mvn_result
     
   - name: build docker image 
+    source: build
     command: docker build -t abc-technology-cloud-d . 
   
   - name: tag docker image 
