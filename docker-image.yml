@@ -4,16 +4,16 @@
 
   tasks:
   - name: create docker image using war file
-    command: docker build -t simple-devops-image:latest .
+    command: docker build -t abc-technology-cloud:latest .
     args:
       chdir: /opt/k8s-lab
 
   - name: create tag to image
-    command: docker tag simple-devops-image yankils/simple-devops-image
+    command: docker tag abc-technology-cloud plamsal90/abc-technology-cloud
 
   - name: push image on to dockerhub
-    command: docker push yankils/simple-devops-image
+    command: docker push plamsal90/abc-technology-cloud
 
   - name: remove docker images form ansible server
-    command: docker rmi simple-devops-image:latest yankils/simple-devops-image
+    command: docker rmi abc-technology-cloud:latest plamsal90/abc-technology-cloud
     ignore_errors: yes
