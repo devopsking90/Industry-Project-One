@@ -23,9 +23,9 @@
 
   - name: Push image to registry
     docker_image:
-    name: abc-technology-cloud-d
-    repository: plamsal90/abc-technology-cloud-d:latest
-    push: yes
+      name: abc-technology-cloud-d
+      repository: plamsal90/abc-technology-cloud-d:latest
+      push: yes
     
     
     
