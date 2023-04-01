@@ -18,9 +18,7 @@
   - name: create docker image using war file
     command: docker build -t plamsal90/abc-technology-cloud-c:latest .
 
-  - name: Tag and push to docker hub
-    docker_image:
-    name: abc
+  - name: push to docker hub
     repository: plamsal90/abc-technology-cloud-c
     push: yes
 
